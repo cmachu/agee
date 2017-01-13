@@ -2,33 +2,38 @@
 
 namespace Core;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
+
 class Dispatcher extends \Phroute\Phroute\Dispatcher{
 
     protected $controller_name;
 
     public function __construct() {
 
-       /* global $ageeConfig;
+        global $ageeConfig;
         global $ageeConnection;
 
         if($ageeConfig['useDatabase']){
-	        $this->capsule = new Database($ageeConnection[$ageeConfig['defaultConnection']]);
-            $this->database = $this->capsule->connection('default');
+            try {
+                $this->capsule = new Database($ageeConnection[$ageeConfig['defaultConnection']]);
+                $this->database = $this->capsule->connection('default');
+            } catch(BindingResolutionException $e){
+                throw new \Exception("Could not connect to database!");
+            }
 		}
-
 
         if($ageeConfig['useSession']){
             $this->session = new Session();
         }
 
-        Agee::setAppName($this->getAppName());
+        $this->router = new Router;
 
+        Agee::setAppName($this->getAppName());
         include('./Apps/'.Agee::getAppName().'/routing.php');
 
         View::set('router',$this->router);
         View::set('session',$this->session);
-*/
-        $this->router = new Router;
+
         parent::__construct($this->router->getData());
     }
 
