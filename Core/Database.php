@@ -4,9 +4,11 @@ namespace Core;
 
 use Illuminate\Database\Capsule\Manager;
 
-class Database extends Manager {
+class Database extends Manager
+{
 
-    function __construct($options = []) {
+    function __construct($options = [])
+    {
         parent::__construct();
 
         $this->addConnection($options);

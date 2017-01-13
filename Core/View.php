@@ -2,69 +2,74 @@
 
 namespace Core;
 
-class View {
+class View
+{
     static $mainTemplate = 'main';
-    static $path = 'views';
+    static $path = 'Views';
     static $data = [];
     static $router;
 
-    public static function getMainTemplate() {
+    public static function getMainTemplate()
+    {
         return self::$mainTemplate;
     }
 
-    public static function setMainTemplate($name = 'main') {
+    public static function setMainTemplate($name = 'main')
+    {
         self::$mainTemplate = $name;
     }
 
-    public static function setPath($path) {
+    public static function setPath($path)
+    {
         self::$path = $path;
     }
 
-    public static function getPath() {
+    public static function getPath()
+    {
         return self::$path;
     }
 
-    public static function template($name, $data = array()) {
+    public static function template($name, $extraData = array())
+    {
 
         global $ageeConfig;
 
-        if(empty($name))
+        if (empty($name)) {
             return false;
+        }
 
         ob_start();
 
-        $filename = 'Apps/'.Agee::getAppName().'/'.self::$path.'/'.$name.'.tpl';
-        $cachedName = str_replace('/', '__', Agee::getAppName().'_'.self::$path.'/'.$name);
-        $cachedFilename = 'cache/'.$cachedName.'.php';
-
-        Console::log("Parsing template",$filename);
+        $filename = 'Apps/' . Agee::getAppName() . '/' . self::$path . '/' . $name . '.tpl';
+        $cachedName = str_replace('/', '__', Agee::getAppName() . '_' . self::$path . '/' . $name);
+        $cachedFilename = 'cache/' . $cachedName . '.php';
 
         $mtime = @filemtime($filename);
         $mtimeCached = @filemtime($cachedFilename);
 
-        if($mtime == false)
+        if ($mtime === false) {
             throw new \Exception("Template {$filename} does not exists !");
+        }
 
-        if($ageeConfig['forceBuildTemplate'] == true || $mtimeCached < $mtime) {
+        if ($ageeConfig['forceBuildTemplate'] == true || $mtimeCached < $mtime) {
             $body = file_get_contents($filename);
             $template = str_replace(array('{{=', '{{', '}}'), array('<?php echo ', '<?php ', ' ?>'), $body);
             file_put_contents($cachedFilename, $template);
         }
 
         extract(self::$data);
-        extract($data);
+        extract($extraData);
 
         $template = include($cachedFilename);
 
         $body = ob_get_contents();
         ob_end_clean();
 
-
-
         return $body;
     }
 
-    public static function set($name, $value) {
+    public static function set($name, $value)
+    {
         self::$data[$name] = $value;
     }
 

@@ -22,8 +22,9 @@ class Router extends \Phroute\Phroute\RouteCollector
     {
         $link = '/' . stripslashes($this->route($path, $vars));
 
-        if ($domain === true)
+        if ($domain === true) {
             $link = $this->getDomain() . $link;
+        }
 
         return $link;
     }

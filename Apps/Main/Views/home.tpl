@@ -5,7 +5,7 @@
     <h3>Simplest MVC framework on whole Earth!</h3>
 
     {{foreach($categories as $category):}}
-        <a href="{{=$router->url('category_',$category['id'])}}">{{=$category['name']}}</a><BR>
+        <a href="{{=$router->url('category_',[$category['id']])}}">{{=$category['name']}}</a><BR>
     {{endforeach}}
 
 </body>

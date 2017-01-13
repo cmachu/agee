@@ -27,8 +27,6 @@ class Ajax
 
     public static function response($values = array())
     {
-        global $ageeConfig;
-        $ageeConfig['mode'] = 'release';
         self::setError();
         self::setWarning();
         self::setResponse();

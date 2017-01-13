@@ -3,27 +3,37 @@
 namespace Core;
 
 
-class Session {
+class Session
+{
 
-    public function __construct(){
-        if( !isset($_SESSION) )
+    public function __construct()
+    {
+        if (!isset($_SESSION)) {
             $this->init_session();
+        }
     }
 
-    public function init_session(){
+    public function init_session()
+    {
         session_start();
     }
 
-    public function set($key,$value){
-       $_SESSION[$key] = $value;
+    public function set($key, $value)
+    {
+        $_SESSION[$key] = $value;
     }
 
-    public function get($key){
-        if(isset($_SESSION[$key])) return $_SESSION[$key];
-        else return false;
+    public function get($key)
+    {
+        if (isset($_SESSION[$key])) {
+            return $_SESSION[$key];
+        } else {
+            return false;
+        }
     }
 
-    public function destroy(){
+    public function destroy()
+    {
         session_unset();
 
         session_destroy();
