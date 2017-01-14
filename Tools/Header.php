@@ -7,10 +7,6 @@ class Header
 
     public static function location($url, $time = false)
     {
-        if (self::isAjax() === true) {
-            return true;
-        }
-
         if ($time !== false) {
             header("Refresh:{$time};url={$url}");
 

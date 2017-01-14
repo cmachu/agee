@@ -29,8 +29,9 @@ class Agee
 
         if (View::getMainTemplate() !== false) {
             echo View::template(View::getMainTemplate(), array('content' => $response));
+        } else{
+            echo $response;
         }
-
     }
 
     public static function debug()
