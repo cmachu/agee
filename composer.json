@@ -2,7 +2,7 @@
     "name": "cmachu/agee-lite",
     "type": "framework",
     "description": "Simplest MVC framework on whole Earth",
-    "keywords": ["framework","mvc","simple","agee","eloquent","phroute","prototyping","fastprototyping"],
+    "keywords": ["framework","mvc","simple","agee","eloquent","phroute","prototyping","fastprototyping","small"],
     "homepage": "https://github.com/cmachu/Agee-Lite",
     "authors": [
         {
