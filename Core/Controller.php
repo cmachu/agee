@@ -20,6 +20,10 @@ class Controller
         $this->session = Agee::__get('session');
         $this->databse = Agee::__get('database');
         $this->router = Agee::__get('router');
+
+        View::set('session',$this->session);
+        View::set('database',$this->database);
+        View::set('router',$this->router);
     }
 
     protected function boot()

@@ -24,8 +24,6 @@ class Agee
             throw new \Exception("Could not connect to database!");
         } catch (HttpRouteNotFoundException $e) {
             throw new \Exception("Route not found!");
-        } catch (\Exception $e) {
-            throw new \Exception("Exception: " . $e->getMessage());
         }
 
         if (View::getMainTemplate() !== false) {
