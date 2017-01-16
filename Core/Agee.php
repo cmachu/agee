@@ -10,7 +10,7 @@ class Agee
 
     private static $dispatcher;
     private static $appName;
-    private static $utility = [];
+    private static $services = [];
 
     public static function init()
     {
@@ -49,24 +49,27 @@ class Agee
         }
     }
 
-    public static function setUtility($router, $session, $database)
+    public static function setServices($services)
     {
-        self::$utility['router'] = $router;
-        self::$utility['session'] = $session;
-        self::$utility['database'] = $database;
+        self::$services = $services;
+    }
+
+    public static function getServices()
+    {
+        return self::$services;
     }
 
     public function __set($name, $value)
     {
-        self::$utility[$name] = $value;
+        self::$services[$name] = $value;
     }
 
     public static function __get($name)
     {
-        if (array_key_exists($name, self::$utility)) {
-            return self::$utility[$name];
+        if (array_key_exists($name, self::$services)) {
+            return self::$services[$name];
         }
-        return false;
+        throw new \Exception('No valid service!')  ;
     }
 
     public static function setAppName($value)

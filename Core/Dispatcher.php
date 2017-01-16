@@ -16,6 +16,7 @@ class Dispatcher extends \Phroute\Phroute\Dispatcher
 
         global $ageeConfig;
         global $ageeConnection;
+        global $ageeServices;
 
         if ($ageeConfig['useDatabase']) {
             $this->capsule = new Database($ageeConnection[$ageeConfig['defaultConnection']]);
@@ -31,7 +32,18 @@ class Dispatcher extends \Phroute\Phroute\Dispatcher
         Agee::setAppName($this->getAppName());
         include('./Apps/' . Agee::getAppName() . '/routing.php');
 
-        Agee::setUtility($this->router, $this->session, $this->database);
+        $services = [
+            'Database'=> $this->database,
+            'Session' => $this->session,
+            'Router'  => $this->router
+        ];
+
+        foreach($ageeServices as $serviceName=>$serviceClass){
+            $utility = new $serviceClass();
+            array_push($services,[$serviceName => $utility]);
+        }
+
+        Agee::setServices($services);
 
         parent::__construct($this->router->getData());
     }
