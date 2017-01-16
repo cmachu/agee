@@ -35,8 +35,14 @@ class Session
     public function destroy()
     {
         session_unset();
-
         session_destroy();
+    }
+
+    public function isAuthorized()
+    {
+        if ($this->get('authorized') === false)
+            return false;
+        return true;
     }
 
 }

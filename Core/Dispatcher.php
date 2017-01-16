@@ -31,9 +31,7 @@ class Dispatcher extends \Phroute\Phroute\Dispatcher
         Agee::setAppName($this->getAppName());
         include('./Apps/' . Agee::getAppName() . '/routing.php');
 
-        View::set('router', $this->router);
-        View::set('session', $this->session);
-        View::set('session', $this->database);
+        Agee::setUtility($this->router, $this->session, $this->database);
 
         parent::__construct($this->router->getData());
     }
@@ -41,7 +39,6 @@ class Dispatcher extends \Phroute\Phroute\Dispatcher
     public function getAppName()
     {
         global $ageeConfig;
-
         return $ageeConfig['defaultApp'];
     }
 

@@ -10,6 +10,7 @@ class Agee
 
     private static $dispatcher;
     private static $appName;
+    private static $utility = [];
 
     public static function init()
     {
@@ -29,9 +30,10 @@ class Agee
 
         if (View::getMainTemplate() !== false) {
             echo View::template(View::getMainTemplate(), array('content' => $response));
-        } else{
+        } else {
             echo $response;
         }
+
     }
 
     public static function debug()
@@ -47,6 +49,26 @@ class Agee
             ini_set('display_error', false);
             error_reporting(0);
         }
+    }
+
+    public static function setUtility($router, $session, $database)
+    {
+        self::$utility['router'] = $router;
+        self::$utility['session'] = $session;
+        self::$utility['database'] = $database;
+    }
+
+    public function __set($name, $value)
+    {
+        self::$utility[$name] = $value;
+    }
+
+    public static function __get($name)
+    {
+        if (array_key_exists($name, self::$utility)) {
+            return self::$utility[$name];
+        }
+        return false;
     }
 
     public static function setAppName($value)
