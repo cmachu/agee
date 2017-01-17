@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Services;
+namespace Agee\Services;
 
 
 class Router extends \Phroute\Phroute\RouteCollector
@@ -21,10 +21,6 @@ class Router extends \Phroute\Phroute\RouteCollector
     function url($path, $vars = array(), $domain = false)
     {
         $link = '/' . stripslashes($this->route($path, $vars));
-
-        if ($domain === true) {
-            $link = $this->getDomain() . $link;
-        }
 
         return $link;
     }

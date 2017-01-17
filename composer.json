@@ -19,9 +19,8 @@
 	},
     "autoload":{
         "psr-4": {
-            "Core\\": "Core",
-            "Apps\\": "Apps",
-            "Tools\\": "Tools"
+            "Agee\\": "Agee",
+            "Apps\\": "Apps"
         }
 
     }

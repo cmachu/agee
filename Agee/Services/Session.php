@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Services;
+namespace Agee\Services;
 
 
 class Session

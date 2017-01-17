@@ -8,4 +8,4 @@ require 'config/database.php';
 session_start();
 date_default_timezone_set($ageeConfig['timezone']);
 
-Core\Agee::init();
+Agee\Agee::init();

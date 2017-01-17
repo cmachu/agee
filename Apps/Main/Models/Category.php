@@ -2,7 +2,7 @@
 
 namespace Apps\Main\Models;
 
-class Category extends \Core\Model
+class Category extends \Agee\Parents\Model
 {
 
     protected $guarded = array('id');

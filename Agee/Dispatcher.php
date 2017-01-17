@@ -1,10 +1,10 @@
 <?php
 
-namespace Core;
+namespace Agee;
 
-use Core\Services\Database;
-use Core\Services\Router;
-use Core\Services\Session;
+use Agee\Services\Database;
+use Agee\Services\Router;
+use Agee\Services\Session;
 
 class Dispatcher extends \Phroute\Phroute\Dispatcher
 {
@@ -37,7 +37,7 @@ class Dispatcher extends \Phroute\Phroute\Dispatcher
 
         Agee::setAppName($this->getAppName());
         $router = $this->services['router'];
-        include('./Apps/' . Agee::getAppName() . '/routing.php');
+        include('./Apps/' . Agee::getAppName() . '/Routing.php');
         $this->services['router'] = $router;
 
         Agee::setServices($this->services);

@@ -4,7 +4,7 @@ namespace Apps\Main\Controllers;
 
 use Apps\Main;
 use Apps\Main\Models;
-use Core\View;
+use Agee\Utilities\View;
 
 class Home extends \Apps\Main\Controller
 {

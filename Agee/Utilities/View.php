@@ -1,6 +1,8 @@
 <?php
 
-namespace Core;
+namespace Agee\Utilities;
+
+use Agee\Agee;
 
 class View
 {

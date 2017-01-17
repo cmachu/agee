@@ -2,7 +2,9 @@
 
 namespace Apps\Main;
 
-class Controller extends \Core\Controller
+use Agee\Utilities\View;
+
+class Controller extends \Agee\Parents\Controller
 {
     protected $user;
     protected $SEO;
@@ -10,10 +12,10 @@ class Controller extends \Core\Controller
 
     protected function boot()
     {
-        \Core\View::setPath('Views');
-        \Core\View::setMainTemplate('main');
+        View::setPath('Views');
+        View::setMainTemplate('main');
 
-        \Core\View::set('whoIsSimplest', 'Agee Lite');
+        View::set('whoIsSimplest', 'Agee Lite');
     }
 
 

@@ -1,7 +1,8 @@
 <?php
 
-namespace Core;
+namespace Agee;
 
+use Agee\Utilities\View;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Phroute\Phroute\Exception\HttpRouteNotFoundException;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tools;
+namespace Agee\Utilities;
 
 class Header
 {

@@ -1,15 +1,18 @@
 <?php
 
-namespace Core;
+namespace Agee\Parents;
 
-use Tools\Ajax;
+use Agee\Agee;
+use Agee\Utilities\Ajax;
+use Agee\Utilities\Input;
+use Agee\Utilities\View;
 
 class Controller
 {
 
     public function __construct()
     {
-        \Tools\Input::boot();
+        Input::boot();
         $this->boot();
         View::set('session', Agee::__get('session'));
         View::set('database', Agee::__get('database'));
