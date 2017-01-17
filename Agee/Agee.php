@@ -15,6 +15,7 @@ class Agee
 
     public static function init()
     {
+
         self::debug();
 
         try {
