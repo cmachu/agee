@@ -1,9 +1,9 @@
 {
-    "name": "cmachu/agee-lite",
+    "name": "cmachu/agee",
     "type": "framework",
     "description": "Simplest MVC framework on whole Earth",
     "keywords": ["framework","mvc","simple","agee","eloquent","phroute","prototyping","fastprototyping","small"],
-    "homepage": "https://github.com/cmachu/Agee-Lite",
+    "homepage": "https://github.com/cmachu/Agee",
     "authors": [
         {
             "name": "Paweł Ćmachowski",
