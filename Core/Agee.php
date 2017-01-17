@@ -69,7 +69,7 @@ class Agee
         if (array_key_exists($name, self::$services)) {
             return self::$services[$name];
         }
-        throw new \Exception('No valid service!')  ;
+        throw new \Exception('There is no service "' . $name . '" !');
     }
 
     public static function setAppName($value)

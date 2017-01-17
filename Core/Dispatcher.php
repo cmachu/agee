@@ -2,50 +2,47 @@
 
 namespace Core;
 
+use Core\Services\Database;
+use Core\Services\Router;
+use Core\Services\Session;
+
 class Dispatcher extends \Phroute\Phroute\Dispatcher
 {
 
     protected $controller_name;
-    protected $capsule;
-    protected $database;
-    protected $session;
-    protected $router;
+    protected $services = [];
 
     public function __construct()
     {
 
         global $ageeConfig;
         global $ageeConnection;
-        global $ageeServices;
 
         if ($ageeConfig['useDatabase']) {
-            $this->capsule = new Database($ageeConnection[$ageeConfig['defaultConnection']]);
-            $this->database = $this->capsule->connection('default');
+            $this->services['capsule'] = new Database($ageeConnection[$ageeConfig['defaultConnection']]);
+            $this->services['database'] = $this->services['capsule']->connection('default');
+        } else {
+            $this->services['database'] = false;
+            $this->services['capsule'] = false;
         }
+
 
         if ($ageeConfig['useSession']) {
-            $this->session = new Session();
+            $this->services['session'] = new Session();
+        } else {
+            $this->services['session'] = false;
         }
 
-        $this->router = new Router;
+        $this->services['router'] = new Router();
 
         Agee::setAppName($this->getAppName());
+        $router = $this->services['router'];
         include('./Apps/' . Agee::getAppName() . '/routing.php');
+        $this->services['router'] = $router;
 
-        $services = [
-            'Database'=> $this->database,
-            'Session' => $this->session,
-            'Router'  => $this->router
-        ];
+        Agee::setServices($this->services);
 
-        foreach($ageeServices as $serviceName=>$serviceClass){
-            $utility = new $serviceClass();
-            array_push($services,[$serviceName => $utility]);
-        }
-
-        Agee::setServices($services);
-
-        parent::__construct($this->router->getData());
+        parent::__construct($this->services['router']->getData());
     }
 
     public function getAppName()

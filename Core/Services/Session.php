@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Core\Services;
 
 
 class Session

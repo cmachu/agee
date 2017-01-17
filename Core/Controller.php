@@ -7,16 +7,13 @@ use Tools\Ajax;
 class Controller
 {
 
-    protected $agee;
-    protected $services;
-
     public function __construct()
     {
         \Tools\Input::boot();
         $this->boot();
-
-        $this->services = Agee::getServices();
-        View::set('Services',$this->services);
+        View::set('session', Agee::__get('session'));
+        View::set('database', Agee::__get('database'));
+        View::set('router', Agee::__get('router'));
     }
 
     protected function boot()

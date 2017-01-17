@@ -6,7 +6,7 @@
 
 
     {{foreach($categories as $category):}}
-        <a href="{{=$Services['Router']->url('category_',[$category['id']])}}">{{=$category['name']}}</a><BR>
+        <a href="{{=$router->url('category_',[$category['id']])}}">{{=$category['name']}}</a><BR>
     {{endforeach}}
 
 </body>
