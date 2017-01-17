@@ -44,7 +44,7 @@ class View
 
         $filename = 'Apps/' . Agee::getAppName() . '/' . self::$path . '/' . $name . '.tpl';
         $cachedName = str_replace('/', '__', Agee::getAppName() . '_' . self::$path . '/' . $name);
-        $cachedFilename = 'cache/' . $cachedName . '.php';
+        $cachedFilename = 'Cache/' . $cachedName . '.php';
 
         $mtime = @filemtime($filename);
         $mtimeCached = @filemtime($cachedFilename);
