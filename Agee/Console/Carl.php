@@ -12,10 +12,16 @@ class Carl
     public function __construct($argv, $argc)
     {
         if ($argc > 1) {
-            $moduleName = ucfirst($argv[1]);
-            $className = "\\Agee\\Console\\Services\\".$moduleName."\\Module";
-            $class = new $className();
-            $this->setResponse($class->getHelp());
+            //register_shutdown_function( array($this,"fatalError") );
+
+            $className = "\\Agee\\Console\\Services\\" . ucfirst($argv[1]) . "\\Module";
+            $module = new $className();
+
+            if(!isset($argv[2])) $argv[2] = '';
+
+            $response = $module->dispatch($argv[2]);
+
+            $this->setResponse($response);
         } else {
             $class = new Module();
             $this->setResponse($class->getHelp());
@@ -31,6 +37,11 @@ class Carl
     public function setResponse($response)
     {
         $this->response = $response;
+    }
+
+    public function fatalError(){
+        $class = new Module();
+        echo "asd".$class->getHelp();
     }
 
 }

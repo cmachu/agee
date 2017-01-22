@@ -1,6 +1,6 @@
 <?php
 
-namespace Agee\Parents;
+namespace Agee\Base;
 
 class Model extends \Illuminate\Database\Eloquent\Model
 {

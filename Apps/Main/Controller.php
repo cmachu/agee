@@ -4,11 +4,8 @@ namespace Apps\Main;
 
 use Agee\Utilities\View;
 
-class Controller extends \Agee\Parents\Controller
+class Controller extends \Agee\Base\Controller
 {
-    protected $user;
-    protected $SEO;
-
 
     protected function boot()
     {

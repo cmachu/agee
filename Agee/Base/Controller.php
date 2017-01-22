@@ -1,6 +1,6 @@
 <?php
 
-namespace Agee\Parents;
+namespace Agee\Base;
 
 use Agee\Agee;
 use Agee\Utilities\Ajax;
