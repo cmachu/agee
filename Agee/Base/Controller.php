@@ -1,5 +1,4 @@
 <?php
-
 namespace Agee\Base;
 
 use Agee\Agee;

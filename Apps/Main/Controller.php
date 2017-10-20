@@ -1,12 +1,10 @@
 <?php
-
 namespace Apps\Main;
 
 use Agee\Utilities\View;
 
 class Controller extends \Agee\Base\Controller
 {
-
     protected function boot()
     {
         View::setPath('Views');
@@ -14,6 +12,4 @@ class Controller extends \Agee\Base\Controller
 
         View::set('whoIsSimplest', 'Agee Lite');
     }
-
-
 }

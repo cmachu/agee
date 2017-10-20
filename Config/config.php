@@ -1,6 +1,14 @@
 <?php
 
-$ageeConfig = array();
+$ageeConfig = array(
+    'mode' =>               'deep_debug',
+    'timezone' =>           'Europe/Warsaw',
+    'useDatabase' =>        true,
+    'useSession' =>         true,
+    'defaultConnection' =>  'main',
+    'defaultApp' =>         'Main',
+    'forceBuildTemplate' => true,
+);
 
 /*
     Mode:
@@ -9,12 +17,3 @@ $ageeConfig = array();
     release    - return no errors
 
 */
-
-$ageeConfig['mode']                 = 'deep_debug';
-$ageeConfig['timezone']             = 'Europe/Warsaw';
-$ageeConfig['useDatabase']          = true;
-$ageeConfig['useSession']           = true;
-$ageeConfig['defaultConnection']    = 'main';
-$ageeConfig['defaultApp']           = 'Main';
-$ageeConfig['forceBuildTemplate']   = true;
-

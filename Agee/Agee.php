@@ -1,5 +1,4 @@
 <?php
-
 namespace Agee;
 
 use Agee\Utilities\View;
@@ -8,14 +7,12 @@ use Phroute\Phroute\Exception\HttpRouteNotFoundException;
 
 class Agee
 {
-
     private static $dispatcher;
     private static $appName;
     private static $services = [];
 
     public static function init()
     {
-
         self::debug();
 
         try {
@@ -33,7 +30,6 @@ class Agee
         } else {
             echo $response;
         }
-
     }
 
     public static function debug()
@@ -51,19 +47,14 @@ class Agee
         }
     }
 
-    public static function setServices($services)
-    {
-        self::$services = $services;
-    }
-
     public static function getServices()
     {
         return self::$services;
     }
 
-    public function __set($name, $value)
+    public static function setServices($services)
     {
-        self::$services[$name] = $value;
+        self::$services = $services;
     }
 
     public static function __get($name)
@@ -74,14 +65,19 @@ class Agee
         throw new \Exception('There is no service "' . $name . '" !');
     }
 
-    public static function setAppName($value)
+    public function __set($name, $value)
     {
-        self::$appName = $value;
+        self::$services[$name] = $value;
     }
 
     public static function getAppName()
     {
         return self::$appName;
+    }
+
+    public static function setAppName($value)
+    {
+        self::$appName = $value;
     }
 
 }

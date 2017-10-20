@@ -17,24 +17,24 @@ class View
         self::$data[$name] = $value;
     }
 
-    public static function setMainTemplate($name = 'main')
-    {
-        self::$mainTemplate = $name;
-    }
-
-    public static function setPath($path)
-    {
-        self::$path = $path;
-    }
-
     public static function getMainTemplate()
     {
         return self::$mainTemplate;
     }
 
+    public static function setMainTemplate($name = 'main')
+    {
+        self::$mainTemplate = $name;
+    }
+
     public static function getPath()
     {
         return self::$path;
+    }
+
+    public static function setPath($path)
+    {
+        self::$path = $path;
     }
 
     public static function template($name, $extraData = array())

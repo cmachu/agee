@@ -1,12 +1,9 @@
 <?php
-
 namespace Agee\Services;
-
 
 class Router extends \Phroute\Phroute\RouteCollector
 {
     protected $url;
-    protected $language;
 
     function getFullPath()
     {
@@ -21,7 +18,6 @@ class Router extends \Phroute\Phroute\RouteCollector
     function url($path, $vars = array(), $domain = false)
     {
         $link = '/' . stripslashes($this->route($path, $vars));
-
         return $link;
     }
 

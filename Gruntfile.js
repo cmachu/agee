@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             css: {
-				files: 'css/sass/*.scss',
+				files: 'public/main/css/sass/*.scss',
 				tasks: ['sass']
 			}
         },
@@ -16,13 +16,12 @@ module.exports = function (grunt) {
 					sourcemap: false
 				},
 				files: {
-					'css/style.css' : 'css/sass/main.scss'
+					'css/style.css' : 'public/main/css/sass/main.scss'
 				}
 			}
 		}
     });
-    
-    
+
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('default', ['sass']);

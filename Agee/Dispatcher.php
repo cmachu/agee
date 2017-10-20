@@ -1,5 +1,4 @@
 <?php
-
 namespace Agee;
 
 use Agee\Services\Database;
@@ -8,13 +7,11 @@ use Agee\Services\Session;
 
 class Dispatcher extends \Phroute\Phroute\Dispatcher
 {
-
     protected $controller_name;
     protected $services = [];
 
     public function __construct()
     {
-
         global $ageeConfig;
         global $ageeConnection;
 
@@ -25,7 +22,6 @@ class Dispatcher extends \Phroute\Phroute\Dispatcher
             $this->services['database'] = false;
             $this->services['capsule'] = false;
         }
-
 
         if ($ageeConfig['useSession']) {
             $this->services['session'] = new Session();

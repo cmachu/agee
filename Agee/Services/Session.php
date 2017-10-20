@@ -1,19 +1,16 @@
 <?php
-
 namespace Agee\Services;
-
 
 class Session
 {
-
-    public function __construct()
+    function __construct()
     {
         if (!isset($_SESSION)) {
-            $this->init_session();
+            $this->initSession();
         }
     }
 
-    public function init_session()
+    public function initSession()
     {
         session_start();
     }
@@ -21,15 +18,6 @@ class Session
     public function set($key, $value)
     {
         $_SESSION[$key] = $value;
-    }
-
-    public function get($key)
-    {
-        if (isset($_SESSION[$key])) {
-            return $_SESSION[$key];
-        } else {
-            return false;
-        }
     }
 
     public function destroy()
@@ -43,6 +31,15 @@ class Session
         if ($this->get('authorized') === false)
             return false;
         return true;
+    }
+
+    public function get($key)
+    {
+        if (isset($_SESSION[$key])) {
+            return $_SESSION[$key];
+        } else {
+            return false;
+        }
     }
 
 }
