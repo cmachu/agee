@@ -1,12 +1,15 @@
 <?php
 
-namespace Agee\Utilities;
+namespace Agee\Services;
+
+use Agee\Agee;
+use Agee\Base\Services\Router;
 
 class Assets
 {
     public static function script($filename = '')
     {
-        echo "<script></script>";
+        echo "<script type='text/javascript' src='".Agee::getAppName()."'></script>";
     }
 
     public static function style($filename = '')

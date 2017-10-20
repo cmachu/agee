@@ -1,9 +1,9 @@
 <?php
 namespace Agee;
 
-use Agee\Services\Database;
-use Agee\Services\Router;
-use Agee\Services\Session;
+use Agee\Base\Services\Database;
+use Agee\Base\Services\Router;
+use Agee\Base\Services\Session;
 
 class Dispatcher extends \Phroute\Phroute\Dispatcher
 {

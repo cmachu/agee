@@ -1,6 +1,6 @@
 <?php
 
-namespace Agee\Utilities;
+namespace Agee\Services;
 
 class Ajax
 {

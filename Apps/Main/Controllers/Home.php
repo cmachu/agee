@@ -1,20 +1,20 @@
 <?php
-
 namespace Apps\Main\Controllers;
 
+use Agee\Services\Input;
 use Apps\Main;
 use Apps\Main\Models;
-use Agee\Utilities\View;
+use Agee\Services\View;
 
 class Home extends \Apps\Main\Controller
 {
-
-
     public function anyIndex()
     {
         $categories = Models\Category::get()->toArray();
 
         View::set('categories', $categories);
+
+        Input::set('test','Test value');
 
         return View::template('home');
     }

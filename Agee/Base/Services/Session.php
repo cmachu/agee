@@ -1,5 +1,5 @@
 <?php
-namespace Agee\Services;
+namespace Agee\Base\Services;
 
 class Session
 {

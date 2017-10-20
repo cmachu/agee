@@ -9,6 +9,7 @@
         <a href="{{=$router->url('category_',[$category['id']])}}">{{=$category['name']}}</a><BR>
     {{endforeach}}
 
+        <input type="text" {{=Input::value('test')}}>
 
-{{Assets::script('test.js');}}
+    {{Assets::script('test.js')}}
 </body>

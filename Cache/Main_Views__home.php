@@ -1,6 +1,7 @@
 <?php
 
-use Agee\Utilities\Assets as Assets;
+use Agee\Services\Assets as Assets;
+use Agee\Services\Input as Input;
 
 ?><body>
 
@@ -13,6 +14,6 @@ use Agee\Utilities\Assets as Assets;
         <a href="<?php echo $router->url('category_',[$category['id']]) ?>"><?php echo $category['name'] ?></a><BR>
     <?php endforeach ?>
 
-
-<?php Assets::script('test.js'); ?>
+        <input type="text" <?php echo Input::value('test')  ?>>
+    <?php Assets::script('test.js'); ?>
 </body>

@@ -1,6 +1,7 @@
 <?php
 
-use Agee\Utilities\Assets as Assets;
+use Agee\Services\Assets as Assets;
+use Agee\Services\Input as Input;
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,7 @@ use Agee\Utilities\Assets as Assets;
     <link rel="stylesheet" href="/Apps/Main/assets/css/style.css" media="screen">
 
 </head>
-test
+
 <?php echo $content ?>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-namespace Agee\Services;
+namespace Agee\Base\Services;
 
 use Illuminate\Database\Capsule\Manager;
 

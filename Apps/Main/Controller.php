@@ -1,8 +1,7 @@
 <?php
 namespace Apps\Main;
 
-use Agee\Utilities\View;
-use Agee\Utilities\Assets;
+use Agee\Services\View;
 
 class Controller extends \Agee\Base\Controller
 {

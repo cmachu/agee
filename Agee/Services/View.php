@@ -1,6 +1,6 @@
 <?php
 
-namespace Agee\Utilities;
+namespace Agee\Services;
 
 use Agee\Agee;
 
@@ -40,7 +40,7 @@ class View
     public static function template($name, $extraData = array())
     {
         global $ageeConfig;
-        $utilFile = 'Apps/' . Agee::getAppName() . '/Utilities.php';
+        $utilFile = 'Apps/Services.php';
 
         if (empty($name)) {
             return false;
