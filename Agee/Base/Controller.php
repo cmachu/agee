@@ -2,9 +2,11 @@
 namespace Agee\Base;
 
 use Agee\Agee;
+use Agee\Utilities;
 use Agee\Utilities\Ajax;
 use Agee\Utilities\Input;
 use Agee\Utilities\View;
+
 
 class Controller
 {

@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+
+use Agee\Utilities\Assets as Assets;
+
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -6,12 +10,14 @@
 
     <title>Agee Lite - Simplest MVC framework on whole Earth!</title>
 
-    <script type="text/javascript" src="/Apps/Main/assets/js/main.js"></script>
+    <?php  Assets::script('main.js');  ?>
+    <?php  Assets::style('style.js');  ?>
 
+    <script type="text/javascript" src="/Apps/Main/assets/js/main.js"></script>
     <link rel="stylesheet" href="/Apps/Main/assets/css/style.css" media="screen">
 
 </head>
-
+test
 <?php echo $content ?>
 
 </html>

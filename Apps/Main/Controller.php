@@ -2,6 +2,7 @@
 namespace Apps\Main;
 
 use Agee\Utilities\View;
+use Agee\Utilities\Assets;
 
 class Controller extends \Agee\Base\Controller
 {

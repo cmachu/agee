@@ -6,8 +6,10 @@
 
     <title>Agee Lite - Simplest MVC framework on whole Earth!</title>
 
-    <script type="text/javascript" src="/Apps/Main/assets/js/main.js"></script>
+    {{ Assets::script('main.js'); }}
+    {{ Assets::style('style.js'); }}
 
+    <script type="text/javascript" src="/Apps/Main/assets/js/main.js"></script>
     <link rel="stylesheet" href="/Apps/Main/assets/css/style.css" media="screen">
 
 </head>

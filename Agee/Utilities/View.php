@@ -39,14 +39,13 @@ class View
 
     public static function template($name, $extraData = array())
     {
-
         global $ageeConfig;
+        $utilFile = 'Apps/' . Agee::getAppName() . '/Utilities.php';
 
         if (empty($name)) {
             return false;
         }
 
-        ob_start();
 
         $filename = 'Apps/' . Agee::getAppName() . '/' . self::$path . '/' . $name . '.tpl';
         $cachedName = str_replace('/', '__', Agee::getAppName() . '_' . self::$path . '/' . $name);
@@ -60,15 +59,19 @@ class View
         }
 
         if ($ageeConfig['forceBuildTemplate'] == true || $mtimeCached < $mtime) {
-            $body = file_get_contents($filename);
+            $body = file_get_contents($utilFile);
+            $body.= file_get_contents($filename);
             $template = str_replace(array('{{=', '{{', '}}'), array('<?php echo ', '<?php ', ' ?>'), $body);
             file_put_contents($cachedFilename, $template);
         }
 
+        ob_start();
+
         extract(self::$data);
         extract($extraData);
 
-        $template = include($cachedFilename);
+        include($utilFile);
+        include($cachedFilename);
 
         $body = ob_get_contents();
         ob_end_clean();

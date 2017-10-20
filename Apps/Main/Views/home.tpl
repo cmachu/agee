@@ -9,4 +9,6 @@
         <a href="{{=$router->url('category_',[$category['id']])}}">{{=$category['name']}}</a><BR>
     {{endforeach}}
 
+
+{{Assets::script('test.js');}}
 </body>

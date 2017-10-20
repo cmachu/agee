@@ -1,4 +1,8 @@
-<body>
+<?php
+
+use Agee\Utilities\Assets as Assets;
+
+?><body>
 
     <h1><?php echo $whoIsSimplest ?></h1>
     <!-- $whoIsSimplest is defined in /Apps/Main/Controller.php -->
@@ -9,4 +13,6 @@
         <a href="<?php echo $router->url('category_',[$category['id']]) ?>"><?php echo $category['name'] ?></a><BR>
     <?php endforeach ?>
 
+
+<?php Assets::script('test.js'); ?>
 </body>
