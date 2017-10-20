@@ -1,5 +1,4 @@
 <?php
-
 namespace Agee\Utilities;
 
 class Header
@@ -22,7 +21,6 @@ class Header
     public static function refresh()
     {
         header("Refresh:0");
-
         return true;
     }
 

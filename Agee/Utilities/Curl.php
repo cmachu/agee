@@ -1,16 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Pawel
- * Date: 02.01.15
- * Time: 16:21
- */
+namespace Agee\Utilities;
 
-namespace Tools;
+class Curl
+{
 
-class Curl{
-
-    public static function get($url){
+    public static function get($url)
+    {
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
@@ -24,7 +19,8 @@ class Curl{
         return $response;
     }
 
-    public static function post($url,$fields){
+    public static function post($url, $fields)
+    {
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
@@ -41,12 +37,13 @@ class Curl{
     }
 
 
-    public static function delete($url,$fields){
+    public static function delete($url, $fields)
+    {
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_URL => $url,
-            CURLOPT_CUSTOMREQUEST=> "DELETE",
+            CURLOPT_CUSTOMREQUEST => "DELETE",
             CURLOPT_POSTFIELDS => $fields,
             CURLOPT_CONNECTTIMEOUT => 3,
             CURLOPT_TIMEOUT => 3

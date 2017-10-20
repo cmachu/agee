@@ -11,9 +11,10 @@ class View
     static $data = [];
     static $router;
 
-    public static function getMainTemplate()
+
+    public static function set($name, $value)
     {
-        return self::$mainTemplate;
+        self::$data[$name] = $value;
     }
 
     public static function setMainTemplate($name = 'main')
@@ -24,6 +25,11 @@ class View
     public static function setPath($path)
     {
         self::$path = $path;
+    }
+
+    public static function getMainTemplate()
+    {
+        return self::$mainTemplate;
     }
 
     public static function getPath()
@@ -68,11 +74,6 @@ class View
         ob_end_clean();
 
         return $body;
-    }
-
-    public static function set($name, $value)
-    {
-        self::$data[$name] = $value;
     }
 
 }
