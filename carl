@@ -1,8 +1,0 @@
-#!/usr/bin/env php
-<?php
-
-require_once "./vendor/autoload.php";
-
-$app = new \Agee\Console\Carl($argv,$argc);
-
-exit($app->getResponse());

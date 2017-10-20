@@ -1,9 +1,0 @@
-<?php
-
-namespace \Apps\Main\Models;
-
-class {{class_name}} extends \Agee\Base\Model
-{
-    protected $guarded  = array('id');
-    protected $fillable = {{fields}};
-}
