@@ -11,11 +11,9 @@ use Agee\Services\Input as Input;
 
     <title>Agee Lite - Simplest MVC framework on whole Earth!</title>
 
-    <?php  Assets::script('main.js');  ?>
-    <?php  Assets::style('style.js');  ?>
+    <?php  Assets::style('style.css');  ?>
 
-    <script type="text/javascript" src="/Apps/Main/assets/js/main.js"></script>
-    <link rel="stylesheet" href="/Apps/Main/assets/css/style.css" media="screen">
+    <?php  Assets::script('app.js');  ?>
 
 </head>
 

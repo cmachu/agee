@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
 
-    grunt.loadNpmTasks('grunt-wiredep','grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-sass');
 	
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -12,11 +12,8 @@ module.exports = function (grunt) {
         },
 		sass: {
 			dist: {
-				options: {
-					sourcemap: false
-				},
 				files: {
-					'css/style.css' : 'public/main/css/sass/main.scss'
+					'public/main/css/style.css' : 'public/main/css/sass/main.scss'
 				}
 			}
 		}

@@ -13,7 +13,6 @@ use Agee\Services\Input as Input;
     <?php foreach($categories as $category): ?>
         <a href="<?php echo $router->url('category_',[$category['id']]) ?>"><?php echo $category['name'] ?></a><BR>
     <?php endforeach ?>
-
-        <input type="text" <?php echo Input::value('test')  ?>>
-    <?php Assets::script('test.js'); ?>
+    <BR><BR>
+    <input type="text" <?php echo Input::value('test') ?>>
 </body>
