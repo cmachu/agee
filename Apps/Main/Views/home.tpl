@@ -8,6 +8,12 @@
     {{foreach($categories as $category):}}
         <a href="{{=$router->url('category_',[$category['id']])}}">{{=$category['name']}}</a><BR>
     {{endforeach}}
+
+    <bR><BR>
+    {{=SampleService::getData()}}
+
     <BR><BR>
+
     <input type="text" {{=Input::value('test')}}>
+
 </body>
