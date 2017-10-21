@@ -8,6 +8,7 @@ $ageeConfig = array(
     'defaultConnection' =>  'main',
     'defaultApp' =>         'Main',
     'forceBuildTemplate' => true,
+    'version' =>            '1.0.0'
 );
 
 /*
