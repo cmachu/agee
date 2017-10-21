@@ -4,3 +4,12 @@
 /Cache
 /storage
 /node_modules
+/.sass-cache
+
+.idea
+vendor
+Config/database.php
+Cache
+storage
+node_modules
+.sass-cache
