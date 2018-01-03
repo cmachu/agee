@@ -9,14 +9,20 @@ use Agee\Services\View;
 
 class Controller
 {
+    private $router;
+    private $session;
 
     public function __construct()
     {
         Input::boot();
         $this->boot();
-        View::set('session', Agee::__get('session'));
-        View::set('database', Agee::__get('database'));
-        View::set('router', Agee::__get('router'));
+
+        $this->router = Agee::get('router');
+        $this->session = Agee::get('session');
+
+        View::set('database', Agee::get('database'));
+        View::set('session', $this->session);
+        View::set('router', $this->router);
     }
 
     protected function boot()

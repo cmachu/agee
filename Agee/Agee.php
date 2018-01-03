@@ -57,7 +57,7 @@ class Agee
         self::$services = $services;
     }
 
-    public static function __get($name)
+    public static function get($name)
     {
         if (array_key_exists($name, self::$services)) {
             return self::$services[$name];
@@ -65,7 +65,7 @@ class Agee
         throw new \Exception('There is no service "' . $name . '" !');
     }
 
-    public function __set($name, $value)
+    public static function set($name, $value)
     {
         self::$services[$name] = $value;
     }
