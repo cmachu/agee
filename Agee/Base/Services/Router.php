@@ -11,8 +11,11 @@ class Router extends \Phroute\Phroute\RouteCollector
 
     public function url($path, $vars = array(), $domain = false)
     {
-        $link = '/' . stripslashes($this->route($path, $vars));
-        return $link;
+        if($domain) {
+            return self::getDomain() . '/' . stripslashes($this->route($path, $vars));
+        } else {
+            return '/' . stripslashes($this->route($path, $vars));
+        }
     }
 
 }
