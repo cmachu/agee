@@ -9,8 +9,8 @@ use Agee\Services\View;
 
 class Controller
 {
-    private $router;
-    private $session;
+    protected $router;
+    protected $session;
 
     public function __construct()
     {
